@@ -10,6 +10,9 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
+  "engines": {
+    "node": "10.3.0"
+  },
   "author": "vivek yadav",
   "license": "ISC",
   "dependencies": {
@@ -24,9 +27,19 @@
     "mongoose": "^5.2.8",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "paypal-rest-sdk": "^1.8.1",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "reactstrap": "^6.5.0",
+    "stripe": "^6.17.0",
     "validator": "^10.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.3"
+    "nodemon": "^1.18.7"
+  },
+  
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Amitk7388/naamras-3"
   }
 }

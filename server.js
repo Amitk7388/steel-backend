@@ -3,10 +3,19 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const user = require('./routes/api/user');
-//const profile = require('./routes/api/profile');
-const posts = require('./routes/api/posts');
+
 const passport = require('passport');
-const ProfileDb = require('././models/Profile');
+
+const modelc2 = require('./routes/api/modelName/C2');
+const modelc4 = require('./routes/api/modelName/C4');
+const modelc9 = require('./routes/api/modelName/C9');
+const postc = require('./routes/api/postc');
+const specifications = require('./routes/api/specification');
+//const stripepayment = require('./routes/api/stripePayment/stripe');
+const shipping = require('./routes/api/shipping/shipping');
+const shippingcheckout = require('./routes/api/shipping/shippingcheckout')
+
+const paypal = require('./routes/api/paypalPayment/paypal')
 
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
@@ -28,18 +37,22 @@ app.use(passport.initialize());
 //passport config
 require('./config/passport')(passport);
 
-//public blogs. 
-app.get('/', (req, res) => { 
-  ProfileDb.find()
-    .sort({ created_at: -1 })
-    .then(posts => res.json(posts))
-    .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
-});
-
 //use Routes
+
+app.use('/api/users/check', paypal);
+app.use('/', shippingcheckout)
+// app.use('api/user/payment', stripepayment)
 app.use('/api/users', user);
-//app.use('/api/profile', profile);
-app.use('/api/posts', posts);
+app.use('/api/user/specifications', specifications);
+
+app.use('/api/user/item', shipping);
+
+// app.use('/api/posts', posts);
+app.use('/api/user/admin/modelc2', modelc2);
+app.use('/api/user/admin/modelc4', modelc4);
+app.use('/api/user/admin/modelc9', modelc9);
+app.use('/api/user/postc', postc);
+
 
 const port = process.env.PORT || 5000;
 app.listen(port, function () {

@@ -1,0 +1,79 @@
+.row{
+  margin-top:10px;
+}
+.row1{
+  margin-left: 30px;
+}
+h4{
+  margin-left: 12px;
+}
+#container {
+    padding: 50px;
+    background-color: #FFF;
+  }
+
+  .colorSquare {
+    box-shadow: 0px 0px 25px 0px #333;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+  }
+
+  .colorArea input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #CCC;
+  }
+
+  .colorArea button {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+    background-color: #666;
+    color: #FFF;
+    border: 2px solid #666;
+  }
+
+  .colorArea button:hover {
+    background-color: #111;
+    border-color: #111;
+    cursor: pointer;
+  }
+
+  .changeBg {
+    padding: 10px 10px;
+  }
+  .changeBg h5{
+    margin: 0px;
+  }
+  .changeBg img
+  {
+    float: left;
+    width: 25px;
+    height: 25px;
+  }
+  .changeColor 
+  {
+    border-radius: 50px;    
+    width: 25px; 
+    height: 25px ; 
+    margin: 10px 5px 0 0 ;
+    cursor: pointer;
+  }
+
+.tab-category{
+  margin: 0;
+  padding: 0 10px;
+}
+.tab-category li 
+{
+  width: 49%;
+  text-align: center;
+  background-color: #ececec;
+  border: 1px solid #ccc;
+}
+.tab-category li a 
+{
+  border-radius: 0 !important;
+}

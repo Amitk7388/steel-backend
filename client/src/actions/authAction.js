@@ -58,3 +58,40 @@ export const logoutUser = () => dispatch => {
   // Set current user to {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
 };
+
+export const modelType = (modelTypeData, history) => dispatch => {
+  axios
+    .post('/api/user/admin/modelc2/c2', modelTypeData)
+    .then(res => history.push('/modeltype'))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+export const shippingItem = (shippingData, history) => dispatch => {
+  axios
+    .post('/api/user/admin/modelc2/c2', shippingData)
+    .then(res => history.push('/shippingItem'))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+
+export const OrderDetail = (checkPay, history) => dispatch => {
+  axios
+    .post('/api/user/admin/check/pay', checkPay)
+    .then(res => history.push('/shipping'))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};

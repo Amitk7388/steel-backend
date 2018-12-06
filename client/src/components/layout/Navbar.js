@@ -3,10 +3,13 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authAction';
+import { clearCurrentProfile } from '../../actions/profileActions';
+import NavbarPublic from "../navbar/Navbar";
 
 class Navbar extends Component {
   onLogoutClick(e) {
     e.preventDefault();
+    this.props.clearCurrentProfile();
     this.props.logoutUser();
   }
 	render() {
@@ -15,7 +18,7 @@ class Navbar extends Component {
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <a href="" onClick={this.onLogoutClick.bind(this)} className="nav-link">
-            <span>Logout</span>
+            <Link to='/'><span>Logout</span></Link>
           </a>
         </li> 
       </ul>  
@@ -27,32 +30,38 @@ class Navbar extends Component {
             <img 
               src={ user.name, require('../../img/user.png')} 
               alt='logOut'
-              style={{width:'25px', marginRight: '5px', marginBottom:'5px' }}
+              style={{width:'25px', marginRight: '3px', marginBottom:'5px' }}
             /> <span>{user.name}</span>
           </a>
         </li> 
       </ul>
     );
     const guestLinks = (
-      <ul className="navbar-nav ml-auto">   
-        <li className="nav-item">
-          <Link className="nav-link" to="/register">
-            Sign Up
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/login">
-            Login
-          </Link>
-        </li>
-      </ul>
+      // <ul className="navbar-nav ml-auto">   
+      //    <li className="nav-item">
+      //     <Link className="nav-link" to="/customorder">
+      //       Custom-Order
+      //     </Link>
+      //   </li>
+      //   <li className="nav-item">
+      //     <Link className="nav-link" to="/register">
+      //       Sign Up
+      //     </Link>
+      //   </li>
+      //   <li className="nav-item">
+      //     <Link className="nav-link" to="/login">
+      //       Login
+      //     </Link>
+      //   </li>
+      // </ul>
+      <NavbarPublic/>
     );
 
 		return(
-		<nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
-        <div className="container">
+		<nav className="navbar mb-4">
+        {/* <div className="container">
           <Link className="navbar-brand" to="/landing">
-            MernApp
+            Admin Pannel
           </Link>
           <button
             className="navbar-toggler"
@@ -64,18 +73,18 @@ class Navbar extends Component {
           </button>
 
           <div className="collapse navbar-collapse" id="mobile-nav">
-            <ul className="navbar-nav mr-auto">
+            {/* <ul className="navbar-nav mr-auto">
               <li className="nav-item">
                 <Link className="nav-link" to="/profiles">
                   {' '}
                   Developers  
                 </Link>
               </li>
-            </ul>
+            </ul> */}
             {isAuthenticated ? authUserLinks : null}
             {isAuthenticated ? authLinks : guestLinks}
-          </div>
-        </div>
+         {/* /</nav> </div>
+        </div> */}
       </nav>
 		)
 	}
@@ -89,4 +98,4 @@ const mapStateToProps = (state) => ({
 
 })
 
-export default connect(mapStateToProps, { logoutUser })(Navbar);
+export default connect(mapStateToProps, { logoutUser, clearCurrentProfile })(Navbar);

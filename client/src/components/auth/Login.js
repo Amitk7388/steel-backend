@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authAction';
 import TextFieldGroup from '../common/TextFieldGroup';
 
+import Payments from '../auth/Login';
+
 class Login extends Component {
   constructor() {
     super();
@@ -53,12 +55,15 @@ class Login extends Component {
 
     return (
       <div className="login">
+
+        {/* <Payments /> */}
         <div className="container">
           <div className="row">
-            <div className="col-md-8 m-auto">
+            <div className="col-md-6 m-auto">
+            <div className="form-layout">
               <h1 className="display-4 text-center">Log In</h1>
               <p className="lead text-center">
-                Sign in to your MernApp account
+                Sign in with existing user
               </p>
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
@@ -79,8 +84,10 @@ class Login extends Component {
                   error={errors.password}
                 />
                 <input type="submit" className="btn btn-info btn-block mt-4" />
-              </form>
+              </form></div>
             </div>
+
+            {/* <Payments /> */}
           </div>
         </div>
       </div>

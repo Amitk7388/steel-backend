@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authAction';  
 import { withRouter } from 'react-router-dom';
 import TextFieldGroup from '../common/TextFieldGroup';
+import {Link} from "react-router-dom";
+import Login from './Login';
 
 class Register extends Component {
   constructor() {  
@@ -12,7 +14,7 @@ class Register extends Component {
       name: '',
       email: '',
       password: '',
-      password2: '',
+      password2: '',  
       errors: {}
     };
     this.onChange = this.onChange.bind(this);
@@ -44,13 +46,25 @@ class Register extends Component {
    // const { user } =this.props.auth;
 
     return (
+      <div>
+      <div className="container-fluid">
+          <div className="banner-section">
+              <div className="banner-title">
+                  <h1>Login/Register</h1>
+              </div>
+          </div>
+
+      </div>
       <div className="register">
         <div className="container">
-          <div className="row">
-            <div className="col-md-8 m-auto">
+          <div className="row m0">
+          <div className="col-sm-02"></div>
+
+            <div className="col-md-6 m-auto">
+            <div className="form-layout">
               <h1 className="display-4 text-center">Sign Up</h1>
               <p className="lead text-center">
-                Create your MernApp account
+                Create an Account for New User
               </p>
               <form noValidate onSubmit={this.onSubmit}>
                   <TextFieldGroup
@@ -78,7 +92,7 @@ class Register extends Component {
                     error={errors.password}
                   />
                   <TextFieldGroup
-                    placeholder="Password 2"
+                    placeholder="conform Password"
                     name="password2"
                     type="password"
                     value={this.state.password2}
@@ -87,10 +101,17 @@ class Register extends Component {
                   />
                 
                 <input type="submit" className="btn btn-info btn-block mt-4" />
-              </form>
+              </form></div>
             </div>
+            
+            <div className="col-md-06">
+              <div>
+                <Login />
+              </div>
+              </div>            
           </div>   
         </div>
+      </div>
       </div>
     );
   }

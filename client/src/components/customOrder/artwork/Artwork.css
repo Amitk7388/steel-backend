@@ -1,0 +1,49 @@
+*:hover, *:focus, *:visited{
+  box-shadow: none !important;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.changeBg input {
+  border-radius: 0;
+}
+.changeBg label{
+  font-size: 14px;
+  font-weight: normal;
+}
+.upload-img{
+  display: block;
+  position: relative;
+  padding: 10px 10px;
+  width: 50%;
+  float: left;
+}
+.upload-img label{
+  text-align: center;
+  font-weight: normal;
+  display: block;
+}
+.upload-container{
+display: block;
+position: relative;
+background: #dadada;
+border: 1px dashed #969696;
+padding: 25px 18px;
+width: 100%;
+min-height: 85px;
+}
+
+.changeLogo img{
+   width: 75px ; 
+   height: auto;
+   float: none;
+   margin-right: 10px;
+}
+
+#address{
+  margin-top: -15px;
+}
+.artwork-color{
+     margin-top: -25px;
+    position: absolute;
+}
